@@ -1,4 +1,5 @@
 import { AuthType } from '@/types/auth';
+import { SavedContent } from '@/types/content';
 import { TagType } from '@/types/tag';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
@@ -23,10 +24,10 @@ export class User {
   interestTag: string[];
 
   @Prop()
-  interestContent: string[];
+  interestContent: SavedContent[];
 
   @Prop()
-  markedContent: string[];
+  markedContent: SavedContent[];
 
   @Prop()
   markedPost: string[];
@@ -45,6 +46,9 @@ export class User {
 
   @Prop()
   thesisCount: number;
+
+  @Prop()
+  codeCount: number;
 
   @Prop()
   follower: number;
