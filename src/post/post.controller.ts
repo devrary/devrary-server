@@ -9,7 +9,7 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { PostsRequestTypeDto } from '@/post/post.dto';
+import { CreatePostDto, PostsRequestTypeDto, UpdatePostDto } from '@/post/post.dto';
 import { User } from '@/common/decorator/user.decorator';
 import { IUser } from '@/interface/user';
 
@@ -30,12 +30,12 @@ export class PostController {
   }
 
   @Post()
-  createPost(@Body() data) {
+  createPost(@Body() data: CreatePostDto) {
     return 'create';
   }
 
   @Put(':id')
-  updatePost(@Param('id') id: string, @Body() data) {
+  updatePost(@Param('id') id: string, @Body() data: UpdatePostDto) {
     return `updatePost by ${id}`;
   }
 
