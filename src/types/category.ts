@@ -1,3 +1,4 @@
+import { ICategory } from './../interface/category';
 export type Category =
   | '프로그래밍 언어'
   | '라이브러리/프레임워크'
