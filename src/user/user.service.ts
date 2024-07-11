@@ -3,7 +3,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateUserDto, GetUserDto } from '@/user/dto/user.dto';
+import { CreateUserDto, GetUserDto } from '@/user/user.dto';
 
 @Injectable()
 export class UserService {

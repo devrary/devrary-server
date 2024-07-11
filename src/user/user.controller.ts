@@ -1,7 +1,7 @@
 import { Public } from '@/common/decorator/public.decorator';
 import { Body, Controller, Post, Headers, Get, Param } from '@nestjs/common';
 import { UserService } from '@/user/user.service';
-import { CreateUserDto, LoginUserDto } from '@/user/dto/user.dto';
+import { CreateUserDto, LoginUserDto } from '@/user/user.dto';
 import { IUserAuth, User } from '@/common/decorator/user.decorator';
 
 @Controller('user')
