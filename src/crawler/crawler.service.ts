@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { spawnSync } from 'child_process';
+import { CrawlSingleUrlDto } from '@/crawler/crawler.dto';
 
 @Injectable()
 export class CrawlerService {
-  async crawlUrl(url: string) {
+  async crawlUrl(data: CrawlSingleUrlDto) {
+    const { url } = data;
     const crawlerProcess = await spawnSync('python3', ['module/crawler/main.py', url]);
     let response: string;
 
@@ -20,6 +22,17 @@ export class CrawlerService {
   
   async crawlUrlList(urlList: string[]) {
     const crawlerProcess = await spawnSync('python3', ['module/crawler/main.py', ...urlList]);
+  
+    let response: string[] = [];
+
+    if (crawlerProcess.stderr && crawlerProcess.stderr.length !== 0) {
+      console.log(crawlerProcess.stderr.toString());
+    } else {
+      response.push(crawlerProcess.stdout.toString());
+      console.log(crawlerProcess.stdout.toString());
+    }
+    
+    return response;
   }
 }
 
